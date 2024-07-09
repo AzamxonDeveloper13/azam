@@ -4,28 +4,27 @@ const Userlist = () => {
   const users = [
     { id: 1, name: 'John Doe', email: 'john.doe@example.com' },
     { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com' },
-    { id: 3, name: 'Alice Johnson', email: 'alice.johnson@example.com' },
-    // Добавьте больше пользователей по необходимости
+    { id: 3, name: 'Robert Johnson', email: 'robert.johnson@example.com' },
+    { id: 4, name: 'Emily Davis', email: 'emily.davis@example.com' },
+    { id: 5, name: 'Michael Brown', email: 'michael.brown@example.com' },
   ];
 
   return (
-    <div className="container mx-auto mt-10 p-4">
-      <h2 className="text-2xl font-bold mb-4 text-center">User List</h2>
+    <div className="container mx-auto mt-10 p-6 bg-gray-100 rounded-lg shadow-xl">
+      <h2 className="text-3xl font-extrabold mb-10 text-center text-blue-600">User List</h2>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white">
-          <thead className="bg-gray-200">
+        <table className="table w-full bg-white shadow-md rounded-lg">
+          <thead>
             <tr>
-              <th className="py-2 px-4 border-b-2 border-gray-200">ID</th>
-              <th className="py-2 px-4 border-b-2 border-gray-200">Name</th>
-              <th className="py-2 px-4 border-b-2 border-gray-200">Email</th>
+              <th>Name</th>
+              <th>Email</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
-              <tr key={user.id} className="hover:bg-gray-100">
-                <td className="py-2 px-4 border-b">{user.id}</td>
-                <td className="py-2 px-4 border-b">{user.name}</td>
-                <td className="py-2 px-4 border-b">{user.email}</td>
+            {users.map(user => (
+              <tr key={user.id}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
               </tr>
             ))}
           </tbody>
