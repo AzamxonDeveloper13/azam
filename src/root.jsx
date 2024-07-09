@@ -4,7 +4,7 @@ import App from './App.jsx';
 import Home from './pages/Home.jsx';
 import Products from './pages/Products.jsx';
 import Employes from './pages/Employes.jsx';
-import Userlist from './pages/Userlist.jsx';
+import Userlist from './pages/UserList.jsx';
 
 const router = createBrowserRouter([
   {
