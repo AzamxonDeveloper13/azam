@@ -1,33 +1,26 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [showWelcome, setShowWelcome] = useState(false);
   const [showMenuWelcome, setShowMenuWelcome] = useState(false);
 
-  const handleProductsClick = () => {
-    setShowWelcome(prevShowWelcome => !prevShowWelcome);
-  };
-
-  const handleMenuClick = () => {
-    setShowMenuWelcome(prevShowMenuWelcome => !prevShowMenuWelcome);
-  };
-
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
         <a className="btn btn-ghost text-xl mr-8">daisyUI</a>
-        <a 
-          className="btn btn-ghost text-xl hover:bg-blue-950" 
-          onClick={handleProductsClick}
-        >
-          Product
-        </a>
-        <a 
-          className="btn btn-ghost text-xl hover:bg-blue-950" 
-          onClick={handleMenuClick}
-        >
-          Food
-        </a>
+        <Link to="/home" className="btn btn-ghost text-xl hover:bg-blue-950">
+          Home
+        </Link>
+        <Link to="/products" className="btn btn-ghost text-xl hover:bg-blue-950">
+          Products
+        </Link>
+        <Link to="/employes" className="btn btn-ghost text-xl hover:bg-blue-950">
+          Employes
+        </Link>
+        <Link to="/userlist" className="btn btn-ghost text-xl hover:bg-blue-950">
+          Userlist
+        </Link>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
@@ -89,27 +82,6 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {showWelcome && (
-        <div className="absolute bottom-0 left-0 right-0 p-[18%] bg-gray-800 text-center shadow-lg">
-          <p className='font-bold'>
-            Products:
-            (Apple iPhone);
-            (Samsung Galaxy Series);
-            (Sony PlayStation);
-            (Nintendo Switch);
-            (Microsoft Xbox Series); 
-            (Apple MacBook); 
-            (Amazon Echo); 
-            (DJI Phantom);
-            (GoPro HERO);
-          </p>
-        </div>
-      )}
-      {showMenuWelcome && (
-        <div className="absolute bottom-0 left-0 right-0 p-[18%] bg-gray-800 text-center shadow-lg">
-          <p className='font-bold'>Foods: (Pizza); (Sushi); (Tacos); (Pasta); (Hamburger); (Salad); (Steak); (Ice Cream); (Chocolate Cake);</p>
-        </div>
-      )}
     </div>
   );
 };

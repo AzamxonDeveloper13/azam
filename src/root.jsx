@@ -1,17 +1,26 @@
-/* other imports */
-import Root, { loader as rootLoader } from "./routes/root";
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import App from './App.jsx';
+import Home from './pages/Home.jsx';
+import Products from './pages/Products.jsx';
+import Employes from './pages/Employes.jsx';
+import Userlist from './pages/Userlist.jsx';
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    loader: rootLoader,
+    path: '/',
+    element: <App />,
     children: [
-      {
-        path: "contacts/:contactId",
-        element: <Contact />,
-      },
+      { path: 'home', element: <Home /> },
+      { path: 'products', element: <Products /> },
+      { path: 'employes', element: <Employes /> },
+      { path: 'userlist', element: <Userlist /> },
     ],
   },
 ]);
+
+const Root = () => {
+  return <RouterProvider router={router} />;
+};
+
+export default Root;
