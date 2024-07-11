@@ -1,18 +1,20 @@
-// src/components/Profile.jsx
-
 import React from 'react';
 
 const Profile = ({ user }) => {
-  if (!user) return <div className="container mx-auto mt-10 p-6 bg-gray-100 rounded-lg shadow-xl text-center"><h2 className="text-3xl font-extrabold mb-10 text-center text-blue-600">No user logged in</h2></div>;
-
   return (
     <div className="container mx-auto mt-10 p-6 bg-gray-100 rounded-lg shadow-xl">
-      <h2 className="text-3xl font-extrabold mb-10 text-center text-blue-600">Profile</h2>
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <p><strong>Name:</strong> {user.name}</p>
-        <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>Phone:</strong> {user.phone}</p>
-      </div>
+      {user ? (
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-3xl font-extrabold mb-10 text-center text-blue-600">Profile</h2>
+          <div className="mb-4">
+            <h3 className="text-xl font-semibold mb-2">Name: {user.name}</h3>
+            <p className="text-lg text-gray-700 mb-2">Email: {user.email}</p>
+            <p className="text-lg text-gray-700 mb-2">Phone: {user.phone}</p>
+          </div>
+        </div>
+      ) : (
+        <p className="text-center text-gray-700">No user profile available.</p>
+      )}
     </div>
   );
 };
